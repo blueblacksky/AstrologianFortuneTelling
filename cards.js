@@ -37,6 +37,8 @@ deckCreate();
 
 const REVERSE_CHANCE = 45;
 
+const THE_TRINITY = '<table class="table"><tbody><tr class=""><td class=""><img id="past" src="" /></td><td class=""><img id="present" src="" /></td><td class=""><img id="future" src="" /></td></tr></tbody></table>';
+
 function deckCreate(){
 	var majorArcana = new Array("Balance", "Bole", "Arrow", "Spear", "Ewer", "Spire");
 	var i;
@@ -78,6 +80,7 @@ function deckDraw(){
 	var selectedSpread = $("#spread option:selected").text();
 	switch(selectedSpread){
 		case "The Trinity":
+			$("#cardContainer").html(THE_TRINITY);
 			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
 				$("#past").addClass('flipped');
