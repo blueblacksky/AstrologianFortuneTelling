@@ -24,7 +24,7 @@ THE SOFTWARE.
 
 */
 
-
+/*CREATING DECK*/
 
 this.cards = new Array();
 this.create = deckCreate;
@@ -33,6 +33,9 @@ this.draw = deckDraw;
 
 deckCreate();
 
+/*CONSTANTS*/
+
+const REVERSE_CHANCE = 45;
 
 function deckCreate(){
 	var majorArcana = new Array("Balance", "Bole", "Arrow", "Spear", "Ewer", "Spire");
@@ -56,20 +59,39 @@ function deckShuffle(){
 		this.cards[j] = this.cards[k];
 		this.cards[k] = temp;	
 		}
-	console.log("shuffled");
 	}
+	
+
+function cardReverse(){
+	if($("#reverse").is(':checked')){
+		var randomNum = Math.random() * (100-0) - + 0;
+		return randomNum <= REVERSE_CHANCE;
+		}
+	else{
+		return false;
+		}
+	}
+	
 	
 function deckDraw(){
 	deckShuffle();
-	console.log(this.cards[0]);
 	var selectedSpread = $("#spread option:selected").text();
 	switch(selectedSpread){
 		case "The Trinity":
 			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#past").addClass('flipped');
+				}
 			this.cards.shift();
 			$("#present").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#present").addClass('flipped');
+				}
 			this.cards.shift();
 			$("#future").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#present").addClass('flipped');
+				}
 			this.cards.shift();
 			break;
 		default:
