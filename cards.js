@@ -82,15 +82,24 @@ function deckDraw(){
 			if(cardReverse()){
 				$("#past").addClass('flipped');
 				}
+			else{
+				$("#past").removeClass('flipped');
+				}
 			this.cards.shift();
 			$("#present").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
 				$("#present").addClass('flipped');
 				}
+			else{
+				$("#present").removeClass('flipped');
+				}
 			this.cards.shift();
 			$("#future").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#present").addClass('flipped');
+				$("#future").addClass('flipped');
+				}
+			else{
+				$("#future").removeClass('flipped');
 				}
 			this.cards.shift();
 			break;
