@@ -37,7 +37,7 @@ deckCreate();
 
 const REVERSE_CHANCE = 45;
 
-const THE_TRINITY = '<table class="table"><tbody><tr class=""><td class=""><img id="past" src="" /></td><td class=""><img id="present" src="" /></td><td class=""><img id="future" src="" /></td></tr></tbody></table>';
+const THE_TRINITY = '<table class="table"><tbody><tr class=""><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="past" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png"/></div></div></div></td><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="present" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png" /></div></div></div></td><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="future" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png"/></div></div></div></td></tr></tbody></table>';
 
 function deckCreate(){
 	var majorArcana = new Array("Balance", "Bole", "Arrow", "Spear", "Ewer", "Spire");
@@ -73,7 +73,10 @@ function cardReverse(){
 		return false;
 		}
 	}
-	
+
+function stayFlipped(sender){
+	console.log("flipped");
+}
 	
 function deckDraw(){
 	deckShuffle();
@@ -83,27 +86,30 @@ function deckDraw(){
 			$("#cardContainer").html(THE_TRINITY);
 			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#past").addClass('flipped');
+				$("#past").addClass('reversed');
 				}
 			else{
-				$("#past").removeClass('flipped');
+				$("#past").removeClass('reversed');
 				}
+			$("#past").click(stayFlipped);
 			this.cards.shift();
 			$("#present").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#present").addClass('flipped');
+				$("#present").addClass('reversed');
 				}
 			else{
-				$("#present").removeClass('flipped');
+				$("#present").removeClass('reversed');
 				}
+			$("#present").click(stayFlipped);
 			this.cards.shift();
 			$("#future").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#future").addClass('flipped');
+				$("#future").addClass('reversed');
 				}
 			else{
-				$("#future").removeClass('flipped');
+				$("#future").removeClass('reversed');
 				}
+			$("#future").click(stayFlipped);
 			this.cards.shift();
 			break;
 		default:
