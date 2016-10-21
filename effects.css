@@ -4,46 +4,5 @@
     transform: rotate(180deg);
 }
 
-/* keeps container perspective */
-.flip-container {
-	perspective: 1000px;
-}
-	
-/* flips cards when active */
-.flip-container:active .flipper, .flip-container.active.flipper {
-	transform: rotateY(180deg);
-}
-
-.flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
-}
-
-/* flip speed */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
-}
-
-/* hid ecard back when flipped */
-.front, .back {
-	backface-visibility: hidden;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-/* front placed above back */
-.front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-}
-
-/* card back initially hidden*/
-.back {
-	transform: rotateY(180deg);
+.card{
 }

@@ -34,10 +34,8 @@ this.draw = deckDraw;
 deckCreate();
 
 /*CONSTANTS*/
-
 const REVERSE_CHANCE = 45;
-
-const THE_TRINITY = '<table class="table"><tbody><tr class=""><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="past" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png"/></div></div></div></td><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="present" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png" /></div></div></div></td><td class=""><div class="flip-container" ontouchstart="this.classList.toggle(\'active\');"><div class="flipper"><div class = "back"><img id="future" src="" /></div><div class="front"><img id="cardBack" src="cardart/back.png"/></div></div></div></td></tr></tbody></table>';
+/*/Constants*/
 
 function deckCreate(){
 	var majorArcana = new Array("Balance", "Bole", "Arrow", "Spear", "Ewer", "Spire");
@@ -73,17 +71,16 @@ function cardReverse(){
 		return false;
 		}
 	}
-
-function stayFlipped(sender){
-	console.log("flipped");
-}
 	
 function deckDraw(){
 	deckShuffle();
-	var selectedSpread = $("#spread option:selected").text();
+	var selectedSpread = $("#spread option:selected").val();
+	$("#"+selectedSpread+"").css("display","inline-block")
+	$("#card1").flip();
+	$("#card2").flip();
+	$("#card3").flip();
 	switch(selectedSpread){
-		case "The Trinity":
-			$("#cardContainer").html(THE_TRINITY);
+		case "trinity":			
 			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
 				$("#past").addClass('reversed');
@@ -91,7 +88,6 @@ function deckDraw(){
 			else{
 				$("#past").removeClass('reversed');
 				}
-			$("#past").click(stayFlipped);
 			this.cards.shift();
 			$("#present").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
@@ -100,7 +96,6 @@ function deckDraw(){
 			else{
 				$("#present").removeClass('reversed');
 				}
-			$("#present").click(stayFlipped);
 			this.cards.shift();
 			$("#future").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
@@ -109,8 +104,7 @@ function deckDraw(){
 			else{
 				$("#future").removeClass('reversed');
 				}
-			$("#future").click(stayFlipped);
-			this.cards.shift();
+			this.cards.shift();	
 			break;
 		default:
 			break;

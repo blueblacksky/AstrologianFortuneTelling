@@ -11,18 +11,54 @@ content="text/html" >
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="cards.js"></script>
+	<script type="text/javascript" src="jquery.flip.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 <select name="spread" id="spread">
-	<option value = "pastPresentFuture">The Trinity</option>
+	<option value = "trinity">The Trinity</option>
+	<option value = "dawnCross">The Dawn Cross</option>
 </select>
 <input type="checkbox" name= "reverse" id="reverse" value="reversals"/>Reversals
 <div id = "clickies">
 	<input type="button" name="draw" value="Draw" onclick="deckDraw()" class="btn btn-lg btn-default" />
 </div>
-<div id = "cardContainer"> 
+<div id ="trinity" style="display: none;">
+	<table> 
+		<tr>
+			<td>
+				<div id="card1"> 
+					<div class="front">
+						<img id="" class="card" src="cardart/back.png"/>  
+					</div> 
+					<div class="back">
+						<img id="past" class="card" src=""/>
+					</div> 
+				</div>
+			</td>
+			<td>
+				<div id="card2"> 
+					<div class="front"> 
+						<img id="" class="card" src="cardart/back.png"/>
+					</div> 
+					<div class="back">
+						<img id="present" class="card" src=""/>
+					</div> 
+				</div>
+			</td>
+			<td>
+				<div id="card3"> 
+					<div class="front"> 
+						<img id="" class="card" src="cardart/back.png"/> 
+					</div> 
+					<div class="back">
+						<img id="future" class="card" src=""/>
+					</div> 
+				</div>
+			</td>
+		</tr>
+	</table>
 </div>
 </body>
 </html>
