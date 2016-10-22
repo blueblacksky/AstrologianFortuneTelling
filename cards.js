@@ -54,7 +54,7 @@ function deckShuffle(){
 		}
 		
 	for (j = 0; j < this.cards.length; j++){
-	    k = Math.floor(Math.random() * this.cards.length);
+	    k = j + Math.floor(Math.random() * (this.cards.length - j));
 		temp = this.cards[j];
 		this.cards[j] = this.cards[k];
 		this.cards[k] = temp;	
@@ -74,11 +74,14 @@ function cardReverse(){
 	
 function deckDraw(){
 	deckShuffle();
+	resetCards();
+	hideSpreads();
+	setTimeout(applySpread, 300)
+	}
+
+function applySpread(){
 	var selectedSpread = $("#spread option:selected").val();
 	$("#"+selectedSpread+"").css("display","inline-block")
-	$("#card1").flip();
-	$("#card2").flip();
-	$("#card3").flip();
 	switch(selectedSpread){
 		case "trinity":			
 			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
@@ -109,4 +112,24 @@ function deckDraw(){
 		default:
 			break;
 		}
+}
+	
+function resetCards(){
+	var card;
+	card = $("#card1").data("flip-model");
+	if(card.isFlipped){
+		$("#card1").flip('toggle');
 	}
+	card = $("#card2").data("flip-model");
+	if(card.isFlipped){
+		$("#card2").flip('toggle');
+	}
+	card = $("#card3").data("flip-model");
+	if(card.isFlipped){
+		$("#card3").flip('toggle');
+	}
+}
+
+function hideSpreads(){
+	$("trinity").css("display","none");
+}
