@@ -27,9 +27,6 @@ THE SOFTWARE.
 /*CREATING DECK*/
 
 this.cards = new Array();
-this.create = deckCreate;
-this.shuffle = deckShuffle;
-this.draw = deckDraw;
 
 deckCreate();
 
@@ -49,9 +46,9 @@ function deckShuffle(){
 	var j, k;
 	var temp;
 	
-	if(this.cards.length === 0){
-		deckCreate();
-		}
+	this.cards.length = 0;
+	deckCreate();
+
 		
 	for (j = 0; j < this.cards.length; j++){
 	    k = j + Math.floor(Math.random() * (this.cards.length - j));
