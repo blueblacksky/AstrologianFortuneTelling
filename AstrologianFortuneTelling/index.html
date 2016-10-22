@@ -6,7 +6,7 @@ http-equiv="Content-Type"
 content="text/html" >
 	<title>Astrologian Fortune Telling</title>
 	<link rel= "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel= "stylesheet" type="text/css" href="effects.css">
+	<link rel= "stylesheet" type="text/css" href="custom.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" 
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
@@ -18,24 +18,26 @@ content="text/html" >
 <body>
 <nav class="navbar navbar-default">
 		<div class="container">
-			<p class="i18n navbar-text" data-i18n="title">Astrologian Fortune Telling</p>
+			<p class="i18n navbar-text" data-i18n="title">Astrologian Fortune Telling v1.0</p>
 			<p class="navbar-text navbar-right">
 				Original by Kurenai Nagi of Balmung -- Assistance/Testing courtesy of Xenedra Ambreaus and Kerin Misteyes
 			</p>
 		</div>
 	</nav>
-<select name="spread" id="spread">
-	<option value = "trinity">The Trinity</option>
-	<option value = "dawnCross">The Dawn Cross</option>
-</select>
-<input type="checkbox" name= "reverse" id="reverse" value="reversals"/>Reversals
-<div id = "clickies">
-	<input type="button" name="draw" value="Draw" onclick="deckDraw()" class="btn btn-lg btn-default" />
+
+<div class = "clickies">
+	<select name="spread" id="spread">
+		<option value = "trinity">The Trinity</option>
+		<option value = "dawnCross">The Dawn Cross</option>
+	</select>
+		<input type="checkbox" name= "reverse" id="reverse" value="reversals"/> Reversals
+		<input type="button" name="draw" value="Draw" onclick="deckDraw()" class="btn btn-lg btn-default" />
 </div>
-<div id ="trinity" style="display: none;">
+<div class="cardSurface">
+<div id="trinity" style="display: none;">
 	<table> 
 		<tr>
-			<td>
+			<td class= "cardContainer">
 				<div id="trinityCard1"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
@@ -45,7 +47,7 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="trinityCard2"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/>
@@ -55,7 +57,7 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="trinityCard3"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
@@ -71,9 +73,9 @@ content="text/html" >
 <div id ="dawnCross" style="display: none;">
 	<table> 
 		<tr>
-			<td>
+			<td class="cardContainer">
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard6"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
@@ -83,11 +85,11 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard2"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
@@ -97,7 +99,7 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard1"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/>
@@ -107,7 +109,7 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard3"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
@@ -119,9 +121,9 @@ content="text/html" >
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td class="cardContainer">
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard4"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
@@ -131,13 +133,13 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td class="cardContainer">
 			</td>
-			<td>
+			<td class="cardContainer">
 				<div id="dawnCard5"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
@@ -147,24 +149,16 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td>
+			<td class="cardContainer">
 			</td>
 		</tr>
 	</table>
 </div>
-<div class="preload">
-<img src="cardart/back.png" />
-<img src="cardart/Arrow.png" />
-<img src="cardart/Balance.png" />
-<img src="cardart/Bole.png" />
-<img src="cardart/Ewer.png" />
-<img src="cardart/Spear.png" />
-<img src="cardart/Spire.png" />
 </div>
-<footer class="row">
-<p>Built for Google Chrome, Mozilla Firefox, and Microsoft Edge</p>
-<p>FINAL FANTASY and assets used are a registered trademark of Square Enix Holdings Co., Ltd.</p>
-<p>This tool is provided free and not for profit.</p>
+<footer class="footer">
+		<p>Built for Google Chrome and Mozilla Firefox, sort of tested in Microsoft Edge</p>
+		<p>FINAL FANTASY and assets used are a registered trademark of Square Enix Holdings Co., Ltd.</p>
+		<p>This tool is provided free and not for profit.</p>
 </footer>
 <script>
 window.onload = function(){

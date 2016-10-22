@@ -1,0 +1,32 @@
+.reversed {
+    transform: rotate(180deg);
+}
+
+.btn{
+	margin-left: 25px;
+}
+
+.footer {
+    position: relative;
+    padding: 10px;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-top: 20px;
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+
+.cardContainer{
+	height: 522px;
+}
+
+.cardSurface{
+	position: relative;
+	padding-left: 20%
+}
+
+.clickies {
+	position: relative;
+	padding: 10px;
+	margin-left: 10px;
+}
