@@ -4,5 +4,9 @@
     transform: rotate(180deg);
 }
 
+.preload{
+	display: none;
+}
+
 .card{
 }

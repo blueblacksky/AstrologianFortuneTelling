@@ -75,8 +75,8 @@ function cardReverse(){
 function deckDraw(){
 	deckShuffle();
 	resetCards();
-	hideSpreads();
-	setTimeout(applySpread, 300)
+	setTimeout(hideSpreads, 400);
+	setTimeout(applySpread, 400);
 	}
 
 function applySpread(){
@@ -179,31 +179,36 @@ function resetCards(){
 	}
 	card = $("#dawnCard1").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard1").flip("flip-model");
+		$("#dawnCard1").flip("toggle");
 	}
 	card = $("#dawnCard2").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard2").flip("flip-model");
+		$("#dawnCard2").flip("toggle");
 	}
 	card = $("#dawnCard3").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard3").flip("flip-model");
+		$("#dawnCard3").flip("toggle");
 	}
 	card = $("#dawnCard4").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard4").flip("flip-model");
+		$("#dawnCard4").flip("toggle");
 	}
 	card = $("#dawnCard5").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard5").flip("flip-model");
+		$("#dawnCard5").flip("toggle");
 	}
 	card = $("#dawnCard6").data("flip-model");
 	if(card.isFlipped){
-		$("#dawnCard6").flip("flip-model");
+		$("#dawnCard6").flip("toggle");
 	}
 }
 
 function hideSpreads(){
-	$("#trinity").css("display","none");
+	var selectedSpread = $("#spread option:selected").val();
+	if(selectedSpread != "trinity"){
+		$("#trinity").css("display","none");
+	}
+	if(selectedSpread != "dawnCross"){
 	$("#dawnCross").css("display","none");
+	}
 }
