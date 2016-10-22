@@ -64,7 +64,7 @@ function deckShuffle(){
 
 function cardReverse(){
 	if($("#reverse").is(':checked')){
-		var randomNum = Math.random() * (100-0) - + 0;
+		var randomNum = Math.random() * (100-0) - 0;
 		return randomNum <= REVERSE_CHANCE;
 		}
 	else{
@@ -84,31 +84,80 @@ function applySpread(){
 	$("#"+selectedSpread+"").css("display","inline-block")
 	switch(selectedSpread){
 		case "trinity":			
-			$("#past").attr("src", "cardart/" + this.cards[0] + ".png");
+			$("#trinityPast").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#past").addClass('reversed');
+				$("#trinityPast").addClass('reversed');
 				}
 			else{
-				$("#past").removeClass('reversed');
+				$("#trinityPast").removeClass('reversed');
 				}
 			this.cards.shift();
-			$("#present").attr("src", "cardart/" + this.cards[0] + ".png");
+			$("#trinityPresent").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#present").addClass('reversed');
+				$("#trinityPresent").addClass('reversed');
 				}
 			else{
-				$("#present").removeClass('reversed');
+				$("#trinityPresent").removeClass('reversed');
 				}
 			this.cards.shift();
-			$("#future").attr("src", "cardart/" + this.cards[0] + ".png");
+			$("#trinityFuture").attr("src", "cardart/" + this.cards[0] + ".png");
 			if(cardReverse()){
-				$("#future").addClass('reversed');
+				$("#trinityFuture").addClass('reversed');
 				}
 			else{
-				$("#future").removeClass('reversed');
+				$("#trinityFuture").removeClass('reversed');
 				}
 			this.cards.shift();	
 			break;
+		case "dawnCross":
+			$("#core").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#core").addClass('reversed');
+				}
+			else{
+				$("#core").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#dawnPast").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#dawnPast").addClass('reversed');
+				}
+			else{
+				$("#dawnPast").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#dawnFuture").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#dawnFuture").addClass('reversed');
+				}
+			else{
+				$("#dawnFuture").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#misfortune").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#misfortune").addClass('reversed');
+				}
+			else{
+				$("#misfortune").removeClass('reversed');
+				}
+			this.cards.shift();	
+			$("#root").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#root").addClass('reversed');
+				}
+			else{
+				$("#root").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#fortune").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#fortune").addClass('reversed');
+				}
+			else{
+				$("#fortune").removeClass('reversed');
+				}
+			this.cards.shift();			
 		default:
 			break;
 		}
@@ -116,20 +165,45 @@ function applySpread(){
 	
 function resetCards(){
 	var card;
-	card = $("#card1").data("flip-model");
+	card = $("#trinityCard1").data("flip-model");
 	if(card.isFlipped){
-		$("#card1").flip('toggle');
+		$("#trinityCard1").flip('toggle');
 	}
-	card = $("#card2").data("flip-model");
+	card = $("#trinityCard2").data("flip-model");
 	if(card.isFlipped){
-		$("#card2").flip('toggle');
+		$("#trinityCard2").flip('toggle');
 	}
-	card = $("#card3").data("flip-model");
+	card = $("#trinityCard3").data("flip-model");
 	if(card.isFlipped){
-		$("#card3").flip('toggle');
+		$("#trinityCard3").flip('toggle');
+	}
+	card = $("#dawnCard1").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard1").flip("flip-model");
+	}
+	card = $("#dawnCard2").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard2").flip("flip-model");
+	}
+	card = $("#dawnCard3").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard3").flip("flip-model");
+	}
+	card = $("#dawnCard4").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard4").flip("flip-model");
+	}
+	card = $("#dawnCard5").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard5").flip("flip-model");
+	}
+	card = $("#dawnCard6").data("flip-model");
+	if(card.isFlipped){
+		$("#dawnCard6").flip("flip-model");
 	}
 }
 
 function hideSpreads(){
-	$("trinity").css("display","none");
+	$("#trinity").css("display","none");
+	$("#dawnCross").css("display","none");
 }
