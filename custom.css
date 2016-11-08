@@ -22,7 +22,19 @@
 
 .cardSurface{
 	position: relative;
-	padding-left: 20%
+	padding-left: 15px;
+}
+
+.lore{
+	position: relative;
+	padding-left: 30px;
+	width: 500px;
+	font-family:Garamond, Georgia, serif;
+	font-size: large;
+}
+
+.seerCard{
+
 }
 
 .clickies {

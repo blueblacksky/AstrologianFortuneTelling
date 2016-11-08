@@ -25,10 +25,9 @@ THE SOFTWARE.
 */
 
 /*CREATING DECK*/
-
 this.cards = new Array();
-
 deckCreate();
+/*/Creating Deck*/
 
 /*CONSTANTS*/
 const REVERSE_CHANCE = 45;
@@ -40,7 +39,8 @@ function deckCreate(){
 	
 	for (i = 0; i < majorArcana.length; i++)
 		this.cards[i] = majorArcana[i];
-		}
+	
+	}
 	
 function deckShuffle(){
 	var j, k;
@@ -57,7 +57,60 @@ function deckShuffle(){
 		this.cards[k] = temp;	
 		}
 	}
+
+function initiateTrinity(){
+	$("#trinityCard1").flip();
+	$("#trinityCard2").flip();
+	$("#trinityCard3").flip();
+	}
 	
+function initiateDawn(){
+	$("#dawnCard1").flip();
+	$("#dawnCard2").flip();
+	$("#dawnCard3").flip();
+	$("#dawnCard4").flip();
+	$("#dawnCard5").flip();
+	$("#dawnCard6").flip();
+	}
+	
+function initiateGaze(){
+	$("#gazeCard1").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard1").click(function() {
+		seersGazeFlipper('gazeCard1');
+		});
+	$("#gazeCard2").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard2").click(function() {
+		seersGazeFlipper('gazeCard2');
+		});
+	$("#gazeCard3").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard3").click(function() {
+		seersGazeFlipper('gazeCard3');
+		});
+	$("#gazeCard4").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard4").click(function() {
+		seersGazeFlipper('gazeCard4');
+		});
+	$("#gazeCard5").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard5").click(function() {
+		seersGazeFlipper('gazeCard5');
+		});
+	$("#gazeCard6").flip({
+		trigger: 'manual'
+		});
+	$("#gazeCard6").click(function() {
+		seersGazeFlipper('gazeCard6');
+		});
+	}
 
 function cardReverse(){
 	if($("#reverse").is(':checked')){
@@ -154,7 +207,58 @@ function applySpread(){
 			else{
 				$("#fortune").removeClass('reversed');
 				}
-			this.cards.shift();			
+			this.cards.shift();
+			break;
+		case "gaze":
+			$("#gaze1").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze1").addClass('reversed');
+				}
+			else{
+				$("#gaze1").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#gaze2").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze2").addClass('reversed');
+				}
+			else{
+				$("#gaze2").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#gaze3").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze3").addClass('reversed');
+				}
+			else{
+				$("#gaze3").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#gaze4").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze4").addClass('reversed');
+				}
+			else{
+				$("#gaze4").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#gaze5").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze5").addClass('reversed');
+				}
+			else{
+				$("#gaze5").removeClass('reversed');
+				}
+			this.cards.shift();
+			$("#gaze6").attr("src", "cardart/" + this.cards[0] + ".png");
+			if(cardReverse()){
+				$("#gaze6").addClass('reversed');
+				}
+			else{
+				$("#gaze6").removeClass('reversed');
+				}
+			this.cards.shift();		
+			break;
 		default:
 			break;
 		}
@@ -197,6 +301,30 @@ function resetCards(){
 	card = $("#dawnCard6").data("flip-model");
 	if(card.isFlipped){
 		$("#dawnCard6").flip("toggle");
+	}	
+	card = $("#gazeCard1").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard1").flip("toggle");
+	}	
+	card = $("#gazeCard2").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard2").flip("toggle");
+	}
+	card = $("#gazeCard3").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard3").flip("toggle");
+	}
+	card = $("#gazeCard4").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard4").flip("toggle");
+	}
+	card = $("#gazeCard5").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard5").flip("toggle");
+	}
+	card = $("#gazeCard6").data("flip-model");
+	if(card.isFlipped){
+		$("#gazeCard6").flip("toggle");
 	}
 }
 
@@ -207,5 +335,64 @@ function hideSpreads(){
 	}
 	if(selectedSpread != "dawnCross"){
 	$("#dawnCross").css("display","none");
+	}
+	if(selectedSpread != "gaze"){
+	$("#gaze").css("display","none");
+	}
+}
+
+function setSeersGazeOnDone(){
+	$("#gazeCard1").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+	$("#gazeCard2").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+	$("#gazeCard3").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+	$("#gazeCard4").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+	$("#gazeCard5").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+	$("#gazeCard6").on('flip:done',function(){
+		seersGazeLimiter();
+	});
+}
+
+
+function seersGazeFlipper(e){
+	var seerFlipped = 0;
+	var card;
+	
+	card = $("#gazeCard1").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;
+	}
+	card = $("#gazeCard2").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;
+	}
+	card = $("#gazeCard3").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;		
+	}
+	card = $("#gazeCard4").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;		
+	}
+	card = $("#gazeCard5").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;		
+	}
+	card = $("#gazeCard6").data("flip-model");
+	if(card.isFlipped){
+		seerFlipped++;		
+	}
+	
+	if(seerFlipped <= 1){
+		$("#"+ e).flip('toggle');
 	}
 }
