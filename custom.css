@@ -1,4 +1,4 @@
-.reversed {
+﻿.reversed {
     transform: rotate(180deg);
 }
 
@@ -28,6 +28,7 @@
 .lore{
 	position: relative;
 	padding-left: 30px;
+	padding-right: 15px;
 	width: 500px;
 	font-family:Garamond, Georgia, serif;
 	font-size: large;
