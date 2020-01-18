@@ -23,6 +23,7 @@
 .cardSurface{
 	position: relative;
 	padding-left: 15px;
+	width
 }
 
 .lore{
@@ -42,4 +43,9 @@
 	position: relative;
 	padding: 10px;
 	margin-left: 10px;
+}
+
+.card {
+	width: 50%;
+	height: auto;
 }
