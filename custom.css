@@ -7,7 +7,8 @@
 }
 
 .footer {
-    position: relative;
+    position: absolute;
+	bottom: 0;
     padding: 10px;
 	margin-right: 15px;
 	margin-left: 15px;
@@ -17,22 +18,28 @@
 }
 
 .cardContainer{
-	height: 522px;
+	max-width: 160px;
+	height: auto;
+	padding: 2px
 }
 
 .cardSurface{
 	position: relative;
 	padding-left: 15px;
-	width
+	float: left;
 }
 
 .lore{
 	position: relative;
 	padding-left: 30px;
 	padding-right: 15px;
-	width: 500px;
+	width: 630px;
+	height: 440px;
 	font-family:Garamond, Georgia, serif;
-	font-size: large;
+	font-size: medium;
+	resize: none;
+	display: none;
+	border: none;
 }
 
 .seerCard{
@@ -46,6 +53,22 @@
 }
 
 .card {
-	width: 50%;
+	max-width: 100%;
 	height: auto;
+}
+
+html, body {
+    height:100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.cred {
+	font-size: x-small;
+} 
+
+table, th, td {
+	table-layout: fixed;
+	height: 100px;
 }

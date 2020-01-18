@@ -18,9 +18,9 @@ content="text/html" >
 <body>
 <nav class="navbar navbar-default">
 		<div class="container">
-			<p class="i18n navbar-text" data-i18n="title">Astrologian Fortune Telling v1.1</p>
-			<p class="navbar-text navbar-right">
-				by Kurenai Nagi of Balmung -- Assistance/Testing courtesy of Xenedra Ambreaus and Kerin Misteyes
+			<p class="i18n navbar-text" data-i18n="title">Astrologian Fortune Telling v1.2</p>
+			<p class="navbar-text navbar-right cred">
+				by Kurenai Nagimae of Goblin -- Assistance/Testing courtesy of Xenedra Ambreaus and Kerin Misteyes FINAL FANTASY and assets used are registered trademarks of Square Enix Holdings Co., Ltd. This tool is provided free and not for profit.
 			</p>
 		</div>
 	</nav>
@@ -34,6 +34,8 @@ content="text/html" >
 		<input type="checkbox" name= "reverse" id="reverse" value="reversals"/> Reversals
 		<input type="button" name="draw" value="Draw" onclick="deckDraw()" class="btn btn-lg btn-default" />  -- click the cards to turn them face up --
 </div>
+
+<textarea id="lore" class="lore"></textarea>
 <div class="cardSurface">
 <div id="trinity" style="display: none;">
 	<table> 
@@ -66,11 +68,6 @@ content="text/html" >
 					<div class="back">
 						<img id="trinityFuture" class="card" src=""/>
 					</div> 
-				</div>
-			</td>
-			<td class="lore">
-				<div>
-				<p>Perhaps the most employed spread is a basic three-card spread, oft referred to as the Trinity. The arcana are shuffled and then three are drawn from the pile and placed face down in a row – the first to the left, the second to the right, and the third twixt the previous two, slightly raised. The cards are then turned in the order they were placed, the first representing the subject’s past, the second, her present, and the third, her future.</p>
 				</div>
 			</td>
 		</tr>
@@ -125,21 +122,6 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td class="lore">
-				<div>
-				<p>The Dawn Cross uses all six of the major arcana and is believed to provide more detailed information regarding a subject’s fate. The cards are shuffled and drawn one at a time.<br/><br/>
-
-				The first card drawn is placed face up in the scrying table’s center. This card is also known as the “core” and represents the subject’s present state.<br/><br/>
-
-				The second card is placed immediately to the core’s left and represents what, in the past, has exerted influence over the subject.<br/><br/>
-
-				The third card is placed immediately to the right of the core and represents what will most affect the subject in the near future.<br/><br/>
-
-				The fourth card is placed below the core, with the fifth card placed immediately below that one. These cards represent misfortune the subject may face in the foreseeable future and the root of that misfortune respectively.<br/><br/>
-
-				The sixth and final card is placed directly above the core to form the cross, and is representative of the subject’s overall fortune.</p>
-				</div>
-			</td>
 		</tr>
 		<tr>
 			<td class="cardContainer">
@@ -179,7 +161,7 @@ content="text/html" >
 	<table> 
 		<tr>
 			<td class= "cardContainer">
-				<div id="gazeCard1" class="seerCard"> 
+				<div id="gazeCard1" class="gazeCard seerCard"> 
 					<div class="front">
 						<img id="" class="card" src="cardart/back.png"/>  
 					</div> 
@@ -189,7 +171,7 @@ content="text/html" >
 				</div>
 			</td>
 			<td class="cardContainer">
-				<div id="gazeCard2" class="seerCard"> 
+				<div id="gazeCard2" class="gazeCard seerCard"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
 					</div> 
@@ -199,7 +181,7 @@ content="text/html" >
 				</div>
 			</td>
 			<td class="cardContainer">
-				<div id="gazeCard3" class="seerCard"> 
+				<div id="gazeCard3" class="gazeCard seerCard"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
 					</div> 
@@ -209,7 +191,7 @@ content="text/html" >
 				</div>
 			</td>
 			<td class="cardContainer">
-				<div id="gazeCard4" class="seerCard"> 
+				<div id="gazeCard4" class="gazeCard seerCard"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
 					</div> 
@@ -219,7 +201,7 @@ content="text/html" >
 				</div>
 			</td>
 			<td class="cardContainer">
-				<div id="gazeCard5" class="seerCard">  
+				<div id="gazeCard5" class="gazeCard seerCard">  
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
 					</div> 
@@ -229,7 +211,7 @@ content="text/html" >
 				</div>
 			</td>
 			<td class="cardContainer">
-				<div id="gazeCard6" class="seerCard"> 
+				<div id="gazeCard6" class="gazeCard seerCard"> 
 					<div class="front"> 
 						<img id="" class="card" src="cardart/back.png"/> 
 					</div> 
@@ -238,26 +220,10 @@ content="text/html" >
 					</div> 
 				</div>
 			</td>
-			<td class="lore">
-				<div>
-				<p>The Seer's Gaze is an obscure spread. All six major arcana are shuffled and laid out in a row. Only two cards are turned face up, the rest remain face down.<br/><br/>
-				
-				The first card chosen is called the Firmament, it represents the subject's current place in the weave of fate.<br/><br/>
-				
-				The second card chosen is called the Intention, it represents the desires of both the reader and the subject.<br/><br/>
-				
-				Together the Firmament and the Intention provide insight into the subject's immediate situation and near future. The Seer's Gaze is believed to invite visions and in some circles is considered a charlatan's game. The validity of this spread perhaps hinges on the Astrologian that reads it.</p>
-				</div>
-			</td>
 		</tr>
 	</table>
 </div>
 </div>
-<footer class="footer">
-		<p>Built for Google Chrome and Mozilla Firefox, sort of tested in Microsoft Edge</p>
-		<p>FINAL FANTASY and assets used are registered trademarks of Square Enix Holdings Co., Ltd.</p>
-		<p>This tool is provided free and not for profit.</p>
-</footer>
 <script>
 window.onload = function(){
 	initiateTrinity();

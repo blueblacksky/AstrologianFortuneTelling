@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2016 thevampirelematt
+Copyright (c) 2016-2020 thevampirelematt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31,6 +31,11 @@ deckCreate();
 
 /*CONSTANTS*/
 const REVERSE_CHANCE = 45;
+
+const TRINITY_LORE = "\tPerhaps the most employed spread is a basic three-card spread, oft referred to as the Trinity. The arcana are shuffled and then three are drawn from the pile and placed face down in a row \u2013 the first to the left, the second to the right, and the third twixt the previous two, slightly raised. The cards are then turned in the order they were placed, the first representing the subject\u2019s past, the second, her present, and the third, her future.";
+const DAWN_CROSS_LORE = "\tThe Dawn Cross uses all six of the major arcana and is believed to provide more detailed information regarding a subject\u2019s fate. The cards are shuffled and drawn one at a time.\r\n\r\n\tThe first card drawn is placed face up in the scrying table\u2019s center. This card is also known as the \u201Ccore\u201D and represents the subject\u2019s present state.\r\n\r\n\tThe second card is placed immediately to the core\u2019s left and represents what, in the past, has exerted influence over the subject.\r\n\r\n\tThe third card is placed immediately to the right of the core and represents what will most affect the subject in the near future.\r\n\r\n\tThe fourth card is placed below the core, with the fifth card placed immediately below that one. These cards represent misfortune the subject may face in the foreseeable future and the root of that misfortune respectively.\r\n\r\n\tThe sixth and final card is placed directly above the core to form the cross, and is representative of the subject\u2019s overall fortune.";
+const SEERS_GAZE_LORE = "\tThe Seer\'s Gaze is an obscure spread. All six major arcana are shuffled and laid out in a row. Only two cards are turned face up, the rest remain face down.\r\n\t\t\t\t\r\n\tThe first card chosen is called the Firmament, it represents the subject\'s current place in the weave of fate.\r\n\t\t\t\t\r\n\tThe second card chosen is called the Intention, it represents the desires of both the reader and the subject.\r\n\t\t\t\t\r\n\tTogether the Firmament and the Intention provide insight into the subject\'s immediate situation and near future. The Seer\'s Gaze is believed to invite visions and in some circles is considered a charlatan\'s game. The validity of this spread perhaps hinges on the Astrologian that reads it.";
+
 /*/Constants*/
 
 function deckCreate(){
@@ -74,41 +79,11 @@ function initiateDawn(){
 	}
 	
 function initiateGaze(){
-	$("#gazeCard1").flip({
+	$(".gazeCard").flip({
 		trigger: 'manual'
 		});
-	$("#gazeCard1").click(function() {
-		seersGazeFlipper('gazeCard1');
-		});
-	$("#gazeCard2").flip({
-		trigger: 'manual'
-		});
-	$("#gazeCard2").click(function() {
-		seersGazeFlipper('gazeCard2');
-		});
-	$("#gazeCard3").flip({
-		trigger: 'manual'
-		});
-	$("#gazeCard3").click(function() {
-		seersGazeFlipper('gazeCard3');
-		});
-	$("#gazeCard4").flip({
-		trigger: 'manual'
-		});
-	$("#gazeCard4").click(function() {
-		seersGazeFlipper('gazeCard4');
-		});
-	$("#gazeCard5").flip({
-		trigger: 'manual'
-		});
-	$("#gazeCard5").click(function() {
-		seersGazeFlipper('gazeCard5');
-		});
-	$("#gazeCard6").flip({
-		trigger: 'manual'
-		});
-	$("#gazeCard6").click(function() {
-		seersGazeFlipper('gazeCard6');
+	$(".gazeCard").click(function() {
+		seersGazeFlipper(this.id);
 		});
 	}
 
@@ -157,7 +132,8 @@ function applySpread(){
 			else{
 				$("#trinityFuture").removeClass('reversed');
 				}
-			this.cards.shift();	
+			this.cards.shift();
+			loreFiller(TRINITY_LORE);	
 			break;
 		case "dawnCross":
 			$("#core").attr("src", "cardart/" + this.cards[0] + ".png");
@@ -208,6 +184,7 @@ function applySpread(){
 				$("#fortune").removeClass('reversed');
 				}
 			this.cards.shift();
+			loreFiller(DAWN_CROSS_LORE);
 			break;
 		case "gaze":
 			$("#gaze1").attr("src", "cardart/" + this.cards[0] + ".png");
@@ -257,7 +234,8 @@ function applySpread(){
 			else{
 				$("#gaze6").removeClass('reversed');
 				}
-			this.cards.shift();		
+			this.cards.shift();
+			loreFiller(SEERS_GAZE_LORE);		
 			break;
 		default:
 			break;
@@ -396,3 +374,10 @@ function seersGazeFlipper(e){
 		$("#"+ e).flip('toggle');
 	}
 }
+
+function loreFiller(e){
+	var textArea = $("#lore");
+	textArea.css('display', 'inline')
+	textArea.val('');
+	textArea.val(e);
+	}
